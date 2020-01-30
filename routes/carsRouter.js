@@ -29,9 +29,30 @@ router.post("/", async (req, res) => {
   console.log(body);
   try {
     const [id] = await db("cars").insert(body);
-    res.json(await db("cars").where("id", id));
+    res.json(
+      await db("cars")
+        .where("id", id)
+        .first()
+    );
   } catch (err) {
-    res.status(500).json({ message: "Failed add car", error: err.message });
+    res.status(500).json({ message: "Failed to add car", error: err.message });
+  }
+});
+
+router.put("/:id", async (req, res) => {
+  try {
+    await db("cars")
+      .where("id", req.params.id)
+      .update(req.body);
+    res.json(
+      await db("cars")
+        .where("id", req.params.id)
+        .first()
+    );
+  } catch (err) {
+    res
+      .status(500)
+      .json({ message: "Failed to update car", error: err.message });
   }
 });
 
