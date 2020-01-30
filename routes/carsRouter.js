@@ -56,4 +56,18 @@ router.put("/:id", async (req, res) => {
   }
 });
 
+router.delete("/:id", async (req, res) => {
+  const { id } = req.params;
+  try {
+    await db("cars")
+      .where("id", id)
+      .del();
+    res.status(204).end();
+  } catch (err) {
+    res
+      .status(500)
+      .json({ message: "Failed to delete car", error: err.message });
+  }
+});
+
 module.exports = router;
