@@ -27,6 +27,19 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+router.get("/:id/sale", async (req, res) => {
+  try {
+    const sale = await db("sales")
+      .where("sales_id", req.params.id)
+      .first();
+    res.json(sale);
+  } catch (err) {
+    res
+      .status(500)
+      .json({ message: "Failed to get sale data", error: err.message });
+  }
+});
+
 router.post("/", async (req, res) => {
   const { body } = req;
   console.log(body);
