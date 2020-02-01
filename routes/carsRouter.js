@@ -5,7 +5,7 @@ const db = require("../data/db");
 const router = express.Router();
 const salesRouter = require("./salesRouter");
 
-router.use("/sale/", salesRouter);
+router.use("/sales/", salesRouter);
 
 router.get("/", async (req, res) => {
   try {
