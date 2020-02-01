@@ -13,7 +13,8 @@ exports.seed = async function(knex) {
           model: "Caprice Classic",
           mileage: 130476,
           transType: "automatic",
-          titleStatus: "salvage"
+          titleStatus: "salvage",
+          sales_id: 1
         },
         {
           id: 2,
@@ -22,7 +23,8 @@ exports.seed = async function(knex) {
           model: "Malibu",
           mileage: 35897,
           transType: "automatic",
-          titleStatus: "clean"
+          titleStatus: "clean",
+          sales_id: 2
         },
         {
           id: 3,
@@ -31,7 +33,8 @@ exports.seed = async function(knex) {
           model: "Sedan deVille",
           mileage: 3,
           transType: "",
-          titleStatus: ""
+          titleStatus: "",
+          sales_id: 3
         }
       ]);
     });

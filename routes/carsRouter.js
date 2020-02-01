@@ -3,6 +3,9 @@ const express = require("express");
 const db = require("../data/db");
 
 const router = express.Router();
+const salesRouter = require("./salesRouter");
+
+router.use("/sale/", salesRouter);
 
 router.get("/", async (req, res) => {
   try {
